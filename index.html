@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DannyVest — Your Gateway to Real Passive Income in Africa</title>
+  <meta name="description" content="Join thousands of Africans already earning consistent passive income daily. Simple to start. Transparent results. Real withdrawals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-pale: #F5E8C0;
+      --dark: #07090D;
+      --dark-2: #0C0F16;
+      --dark-3: #12161F;
+      --dark-4: #191E2A;
+      --muted: #4A5468;
+      --text: #D0D8EE;
+      --text-dim: #7A8BA8;
+      --green: #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(7,9,13,0.92);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem; font-weight: 700;
+      color: var(--gold-light);
+      text-decoration: none; letter-spacing: 0.04em;
+    }
+    .nav-logo span { color: rgba(201,168,76,0.45); font-weight: 300; }
+    .nav-btn {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--dark);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 0.6rem 1.4rem;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .nav-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 9rem 1.5rem 5rem;
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(ellipse 90% 65% at 50% -5%, rgba(201,168,76,0.1) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 85% 85%, rgba(201,168,76,0.05) 0%, transparent 60%),
+        var(--dark);
+    }
+
+    /* grid lines */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 70px, rgba(201,168,76,0.03) 70px, rgba(201,168,76,0.03) 71px),
+        repeating-linear-gradient(90deg, transparent, transparent 70px, rgba(201,168,76,0.03) 70px, rgba(201,168,76,0.03) 71px);
+    }
+
+    /* floating orbs */
+    .orb {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      filter: blur(80px); opacity: 0.12;
+      animation: orbFloat 10s ease-in-out infinite alternate;
+    }
+    .orb-1 { width: 400px; height: 400px; background: var(--gold); top: -100px; left: -100px; }
+    .orb-2 { width: 300px; height: 300px; background: var(--gold-light); bottom: 0; right: -80px; animation-delay: -4s; }
+
+    @keyframes orbFloat {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(30px, 20px) scale(1.1); }
+    }
+
+    /* particles */
+    .particles { position: absolute; inset: 0; pointer-events: none; }
+    .dot {
+      position: absolute; border-radius: 50%;
+      background: var(--gold); opacity: 0;
+      animation: rise linear infinite;
+    }
+    @keyframes rise {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 0.5; }
+      90% { opacity: 0.15; }
+      100% { transform: translateY(-110vh) translateX(20px); opacity: 0; }
+    }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.8rem;
+      animation: fadeUp 0.9s ease both;
+    }
+    .hero-tag::before, .hero-tag::after {
+      content: ''; display: block; width: 35px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .hero-tag::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8.5vw, 7.5rem);
+      font-weight: 300; line-height: 1.04;
+      background: linear-gradient(155deg, #fff 25%, var(--gold-pale) 55%, var(--gold) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 0.6rem;
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+    h1 em { font-style: italic; }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.2vw, 1.5rem);
+      font-weight: 300; font-style: italic;
+      color: var(--gold-pale); opacity: 0.65;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.9s 0.2s ease both;
+    }
+
+    .hero-desc {
+      max-width: 540px; font-size: 0.94rem;
+      font-weight: 300; line-height: 1.9;
+      color: var(--text-dim); margin-bottom: 3rem;
+      animation: fadeUp 0.9s 0.3s ease both;
+    }
+
+    .hero-btns {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+      animation: fadeUp 0.9s 0.45s ease both;
+    }
+
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--dark);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 1rem 2.4rem; text-decoration: none;
+      position: relative; overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .btn-gold::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      transform: translateX(-100%); transition: transform 0.45s;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(201,168,76,0.4); }
+    .btn-gold:hover::after { transform: translateX(100%); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--gold-light);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 1rem 2.2rem; text-decoration: none;
+      border: 1px solid rgba(201,168,76,0.3);
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.07); transform: translateY(-2px); }
+
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      animation: fadeUp 1s 1.2s ease both;
+    }
+    .scroll-hint span { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
+    .scroll-line {
+      width: 1px; height: 38px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--dark-3);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      padding: 0.75rem 0; overflow: hidden;
+    }
+    .ticker-track {
+      display: flex; gap: 3rem;
+      animation: ticker 30s linear infinite;
+      width: max-content;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .tick {
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.08em; white-space: nowrap;
+      color: var(--text-dim);
+    }
+    .tick .sym { color: var(--gold-light); margin-right: 0.4rem; }
+    .tick .up { color: #4CAF7D; }
+    .tick .dn { color: #E05A5A; }
+
+    /* ── STATS ── */
+    .stats {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      background: var(--dark-2);
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .stat {
+      flex: 1; min-width: 140px; max-width: 220px;
+      text-align: center; padding: 2.5rem 1rem;
+      position: relative;
+    }
+    .stat + .stat::before {
+      content: ''; position: absolute;
+      left: 0; top: 25%; bottom: 25%;
+      width: 1px; background: rgba(201,168,76,0.1);
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 600;
+      color: var(--gold-light); line-height: 1; display: block;
+    }
+    .stat-lbl {
+      font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--text-dim); margin-top: 0.4rem; display: block;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 5.5rem 1.5rem; }
+    .inner { max-width: 1080px; margin: 0 auto; }
+    .sec-tag {
+      font-size: 0.66rem; letter-spacing: 0.38em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.7rem;
+    }
+    .sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      font-weight: 300; line-height: 1.12; color: #fff;
+      margin-bottom: 1.2rem;
+    }
+    .sec-title em { font-style: italic; color: var(--gold-pale); }
+    .sec-body {
+      font-size: 0.93rem; font-weight: 300;
+      line-height: 1.9; color: var(--text-dim); max-width: 600px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1px; margin-top: 3.5rem;
+      border: 1px solid rgba(201,168,76,0.08);
+    }
+    .step {
+      background: var(--dark-2); padding: 2.5rem 1.8rem;
+      position: relative; transition: background 0.3s;
+    }
+    .step:hover { background: var(--dark-3); }
+    .step::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .step:hover::after { opacity: 1; }
+    .step-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem; font-weight: 700;
+      color: rgba(201,168,76,0.07); line-height: 1;
+    }
+    .step-ico { font-size: 1.6rem; margin: 0.5rem 0 0.8rem; display: block; }
+    .step-t {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 600;
+      color: var(--gold-pale); margin-bottom: 0.6rem;
+    }
+    .step-d { font-size: 0.87rem; font-weight: 300; line-height: 1.8; color: var(--text-dim); }
+
+    /* ── FEATURES ── */
+    .feats-wrap { background: var(--dark-2); }
+    .feats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.25rem; margin-top: 3rem;
+    }
+    .feat {
+      border: 1px solid rgba(201,168,76,0.1);
+      padding: 2rem 1.6rem;
+      background: rgba(201,168,76,0.02);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .feat:hover { border-color: rgba(201,168,76,0.32); transform: translateY(-4px); }
+    .feat-ico { font-size: 1.75rem; margin-bottom: 0.9rem; display: block; }
+    .feat-t {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem;
+    }
+    .feat-d { font-size: 0.86rem; font-weight: 300; line-height: 1.8; color: var(--text-dim); }
+
+    /* ── TESTIMONIALS ── */
+    .testi-wrap { background: var(--dark-3); }
+    .testis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .testi {
+      border: 1px solid rgba(201,168,76,0.1);
+      padding: 2rem 1.75rem;
+      background: var(--dark-2);
+      position: relative;
+    }
+    .testi::before {
+      content: '\201C';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem; line-height: 0.7;
+      color: rgba(201,168,76,0.12);
+      position: absolute; top: 1.2rem; left: 1.2rem;
+    }
+    .testi-text {
+      font-size: 0.92rem; font-weight: 300;
+      line-height: 1.85; color: var(--text);
+      margin-bottom: 1.2rem; position: relative; z-index: 1;
+    }
+    .testi-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 600; color: var(--gold-light);
+    }
+    .testi-loc { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.15rem; }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background:
+        linear-gradient(135deg, rgba(201,168,76,0.1) 0%, transparent 60%),
+        var(--dark-3);
+      border: 1px solid rgba(201,168,76,0.18);
+      padding: 4.5rem 2rem; text-align: center;
+      max-width: 860px; margin: 0 auto;
+    }
+    .cta-band h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 300; color: #fff; margin-bottom: 0.8rem;
+    }
+    .cta-band h2 em { font-style: italic; color: var(--gold-pale); }
+    .cta-band p {
+      font-size: 0.93rem; font-weight: 300;
+      color: var(--text-dim); margin-bottom: 2rem;
+      max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.8;
+    }
+    .cta-btns { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+    /* ── WHATSAPP ── */
+    .wa-band {
+      background: linear-gradient(135deg, #060E06, #0A160A);
+      border-top: 1px solid rgba(37,211,102,0.15);
+      border-bottom: 1px solid rgba(37,211,102,0.15);
+      padding: 5rem 1.5rem; text-align: center;
+    }
+    .wa-inner { max-width: 660px; margin: 0 auto; }
+    .wa-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(37,211,102,0.1);
+      border: 1px solid rgba(37,211,102,0.2);
+      padding: 0.35rem 1rem; margin-bottom: 1.8rem;
+      font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--green);
+    }
+    .wa-band h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      font-weight: 300; color: #fff; margin-bottom: 1.2rem;
+    }
+    .wa-copy {
+      font-size: 0.94rem; font-weight: 300;
+      line-height: 1.95; color: var(--text-dim); margin-bottom: 2.2rem;
+    }
+    .wa-copy strong { color: var(--green); font-weight: 500; }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 0.65rem;
+      background: var(--green); color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 1.05rem 2.5rem; text-decoration: none;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .btn-wa:hover { background: #128C7E; transform: translateY(-2px); box-shadow: 0 14px 32px rgba(37,211,102,0.25); }
+    .wa-num { margin-top: 1.2rem; font-size: 0.78rem; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(201,168,76,0.07);
+      padding: 3.5rem 2rem 2rem; text-align: center;
+    }
+    .foot-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 700; color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .foot-tag {
+      font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 2.2rem;
+    }
+    .foot-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 2.5rem; }
+    .foot-links a {
+      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-dim); text-decoration: none; transition: color 0.2s;
+    }
+    .foot-links a:hover { color: var(--gold); }
+    .foot-bottom {
+      font-size: 0.73rem; color: var(--muted);
+      border-top: 1px solid rgba(201,168,76,0.06); padding-top: 1.5rem;
+      line-height: 1.8;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── DIVIDER GEM ── */
+    .gem-divider {
+      display: flex; align-items: center; gap: 1rem;
+      max-width: 180px; margin: 0 auto 3rem;
+    }
+    .gem-divider::before, .gem-divider::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);
+    }
+    .gem { color: var(--gold); font-size: 0.55rem; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.2rem; }
+      .stat + .stat::before { display: none; }
+      .steps { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 400px) {
+      .steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Danny<span>Vest</span></a>
+  <a href="https://leadsafrica.com/signup/Dimej" target="_blank" rel="noopener" class="nav-btn">Start Earning</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="hero-tag">Africa's Trusted Earning Community</div>
+
+  <h1>Your Gateway to<br><em>Real Passive</em><br>Income in Africa</h1>
+  <p class="hero-sub">Simple to start. Transparent results. Real withdrawals.</p>
+
+  <p class="hero-desc">
+    Join thousands of Nigerians and Africans already earning consistent
+    passive income daily. No complexity. No hidden fees. Just real results
+    from a platform that works — starting from Day One.
+  </p>
+
+  <div class="hero-btns">
+    <a href="https://leadsafrica.com/signup/Dimej" target="_blank" rel="noopener" class="btn-gold">
+      ◆ Access the Platform
+    </a>
+    <a href="https://wa.me/2348065838887?text=Hello%20Danny!%20I%20came%20across%20DannyVest%20and%20I'm%20interested%20in%20joining%20the%20investment%20group.%20Please%20add%20me!" target="_blank" rel="noopener" class="btn-outline">
+      💬 WhatsApp
+    </a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Discover</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <span class="stat-num" data-target="12000" data-suffix="+">0</span>
+    <span class="stat-lbl">Active Members</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">5×</span>
+    <span class="stat-lbl">Average Returns</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">100%</span>
+    <span class="stat-lbl">Transparent</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">24/7</span>
+    <span class="stat-lbl">WhatsApp Support</span>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="inner">
+    <p class="sec-tag">The Process</p>
+    <h2 class="sec-title">Three steps to <em>financial freedom</em></h2>
+    <p class="sec-body">
+      Getting started on DannyVest is seamless. No complex process,
+      no hidden barriers — just a clear path toward earning daily.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <span class="step-ico">🔗</span>
+        <div class="step-t">Access the Platform</div>
+        <p class="step-d">Click our exclusive link to sign up on our verified investment platform. Registration is free and takes under 2 minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <span class="step-ico">💰</span>
+        <div class="step-t">Fund Your Account</div>
+        <p class="step-d">Start with any comfortable amount. The platform supports Nigerian bank transfers, USDT, and multiple payment options.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <span class="step-ico">📈</span>
+        <div class="step-t">Watch It Grow</div>
+        <p class="step-d">Sit back as your investment generates consistent, transparent returns you can track in real time on your dashboard.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <span class="step-ico">💳</span>
+        <div class="step-t">Withdraw Freely</div>
+        <p class="step-d">Withdraw your earnings anytime, directly to your Nigerian bank account or mobile wallet. No lock-in. No drama.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="feats-wrap">
+  <div class="inner">
+    <p class="sec-tag">Why DannyVest</p>
+    <h2 class="sec-title">Built for <em>serious earners</em></h2>
+    <div class="feats">
+      <div class="feat">
+        <span class="feat-ico">🛡️</span>
+        <div class="feat-t">Verified & Secure</div>
+        <p class="feat-d">Every platform we partner with is carefully vetted for security, reliability, and a proven track record of paying members.</p>
+      </div>
+      <div class="feat">
+        <span class="feat-ico">📊</span>
+        <div class="feat-t">Transparent Returns</div>
+        <p class="feat-d">No guesswork. Real-time dashboards show exactly how your money is working for you every single day.</p>
+      </div>
+      <div class="feat">
+        <span class="feat-ico">🌍</span>
+        <div class="feat-t">Built for Nigeria & Africa</div>
+        <p class="feat-d">Designed for African investors with local bank support, Naira-friendly options, and a community that understands you.</p>
+      </div>
+      <div class="feat">
+        <span class="feat-ico">🤝</span>
+        <div class="feat-t">Community Driven</div>
+        <p class="feat-d">Join a thriving WhatsApp community of active investors sharing daily tips, withdrawal proofs, and success stories.</p>
+      </div>
+      <div class="feat">
+        <span class="feat-ico">⚡</span>
+        <div class="feat-t">Instant Onboarding</div>
+        <p class="feat-d">From signup to first investment in under 5 minutes. No paperwork, no waiting, no unnecessary steps.</p>
+      </div>
+      <div class="feat">
+        <span class="feat-ico">🎯</span>
+        <div class="feat-t">Direct Expert Guidance</div>
+        <p class="feat-d">Get hands-on support and investment guidance from Danny personally via WhatsApp — anytime you need it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-wrap">
+  <div class="inner">
+    <p class="sec-tag">Real People. Real Results.</p>
+    <h2 class="sec-title">What our <em>members are saying</em></h2>
+    <div class="testis">
+      <div class="testi">
+        <p class="testi-text">I joined DannyVest last month and made my first withdrawal in week 2. I was skeptical at first but this is genuinely real. Danny guided me through everything on WhatsApp.</p>
+        <div class="testi-name">Tunde A.</div>
+        <div class="testi-loc">Lagos, Nigeria</div>
+      </div>
+      <div class="testi">
+        <p class="testi-text">Danny's WhatsApp group gave me all the guidance I needed. Within my first week I understood exactly what to do. I'm now earning daily and I've already referred my siblings.</p>
+        <div class="testi-name">Blessing O.</div>
+        <div class="testi-loc">Abuja, Nigeria</div>
+      </div>
+      <div class="testi">
+        <p class="testi-text">Simplest thing I've ever started. No stress, no confusion — just follow the steps and earn. I've referred 5 friends already and they're all thanking me for it.</p>
+        <div class="testi-name">Emeka C.</div>
+        <div class="testi-loc">Port Harcourt, Nigeria</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section>
+  <div class="inner">
+    <div class="cta-band">
+      <div class="gem-divider"><span class="gem">◆</span></div>
+      <h2>Ready to start <em>earning today?</em></h2>
+      <p>Thousands of Nigerians are already growing their income on this platform every day. Your spot is waiting — don't miss out.</p>
+      <div class="cta-btns">
+        <a href="https://leadsafrica.com/signup/Dimej" target="_blank" rel="noopener" class="btn-gold">
+          ◆ Access Investment Platform
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP -->
+<div class="wa-band">
+  <div class="wa-inner">
+    <div class="wa-pill">💬 Private WhatsApp Community</div>
+    <h2>Don't invest alone.<br>Join our winning group.</h2>
+    <p class="wa-copy">
+      Our private WhatsApp group is where the <strong>real alpha happens</strong> —
+      daily earning tips, withdrawal proof screenshots, strategy sessions,
+      and direct access to Danny himself.<br><br>
+      Over <strong>1,000+ members</strong> are already in the room making moves every day.
+      Are you going to be the last one in?<br><br>
+      <strong>Click below and get added instantly. It costs you nothing to join —
+      but the knowledge inside is priceless.</strong>
+    </p>
+    <a href="https://wa.me/2348065838887?text=Hello%20Danny!%20I%20came%20across%20DannyVest%20and%20I'm%20interested%20in%20joining%20the%20investment%20group.%20Please%20add%20me!" target="_blank" rel="noopener" class="btn-wa">
+      💬 WhatsApp
+    </a>
+    <p class="wa-num">+234 806 583 8887 · Tap to chat directly with Danny</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">DannyVest</div>
+  <p class="foot-tag">Your trusted gateway to passive income across Africa</p>
+  <div class="foot-links">
+    <a href="https://leadsafrica.com/signup/Dimej" target="_blank" rel="noopener">Investment Platform</a>
+    <a href="https://wa.me/2348065838887" target="_blank" rel="noopener">WhatsApp Group</a>
+    <a href="tel:+2348065838887">Contact Danny</a>
+  </div>
+  <div class="foot-bottom">
+    © 2026 DannyVest · All rights reserved.<br>
+    <span style="opacity:0.5">Investment involves risk. Please invest responsibly.</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Particles
+  const pc = document.getElementById('particles');
+  for (let i = 0; i < 25; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot';
+    d.style.cssText = `
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      width:${1+Math.random()*2}px;
+      height:${1+Math.random()*2}px;
+      animation-delay:${Math.random()*8}s;
+      animation-duration:${7+Math.random()*6}s;
+    `;
+    pc.appendChild(d);
+  }
+
+  // Ticker
+  const ticks = [
+    {sym:'BTC',price:'94,210',chg:'+2.18%',up:true},
+    {sym:'ETH',price:'3,402',chg:'+1.96%',up:true},
+    {sym:'DOGE',price:'0.182',chg:'+4.12%',up:true},
+    {sym:'AAPL',price:'228.42',chg:'+1.24%',up:true},
+    {sym:'MSFT',price:'445.18',chg:'+0.86%',up:true},
+    {sym:'NVDA',price:'1284.10',chg:'+3.42%',up:true},
+    {sym:'TSLA',price:'248.91',chg:'-0.74%',up:false},
+    {sym:'GOOGL',price:'182.55',chg:'+0.42%',up:true},
+    {sym:'GOLD',price:'2,684',chg:'+0.55%',up:true},
+    {sym:'AMZN',price:'211.78',chg:'+1.08%',up:true},
+  ];
+  const track = document.getElementById('ticker');
+  const html = ticks.map(t =>
+    `<span class="tick"><span class="sym">${t.sym}</span>$${t.price} <span class="${t.up?'up':'dn'}">${t.chg}</span></span>`
+  ).join('');
+  track.innerHTML = html + html; // duplicate for seamless loop
+
+  // Count-up
+  const counters = document.querySelectorAll('[data-target]');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const end = parseInt(el.dataset.target);
+      const suf = el.dataset.suffix || '';
+      let cur = 0;
+      const step = end / 80;
+      const t = setInterval(() => {
+        cur = Math.min(cur + step, end);
+        el.textContent = Math.floor(cur).toLocaleString() + suf;
+        if (cur >= end) clearInterval(t);
+      }, 18);
+      obs.unobserve(el);
+    });
+  }, {threshold: 0.4});
+  counters.forEach(c => obs.observe(c));
+</script>
+</body>
+</html>
